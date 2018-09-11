@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/bc-eln":{"create":true,"guestpath":"/home/vagrant/bc-eln","hostpath":"/home/hector/code/django/bc-eln","disabled":false,"__vagrantfile":true}}}
