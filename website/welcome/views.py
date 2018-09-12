@@ -5,4 +5,4 @@ from django.http import HttpResponse
 from django.template.context_processors import request
 
 def index(request):
-    return HttpResponse ("This is the welcome page.")
+    return HttpResponse ("<h1>This is the welcome page.</h1>")
