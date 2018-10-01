@@ -1,15 +1,18 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-from django.db import models
 
 
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+class Sample(models.Model):
+    product = models.CharField(max_length=100)
+    batch = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    storage_temp = models.CharField(max_length=100)
 
 
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+class LabProtocol(models.Model):
+    sample = models.ForeignKey(Sample, on_delete=models.CASCADE)
+    analyst = models.ForeignKey(User, on_delete=models.CASCADE)
+    analyte = models.CharField(max_length=100)
+    instructions = models.TextField()
