@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-sources>
-	<data-source id="sqlite_jdbc-1662d7b6636-5274318a73c8ea53" provider="generic" driver="sqlite_jdbc" name="SQLite - db.sqlite3" save-password="true" read-only="false">
-		<connection server="" database="/home/hector/code/django/bc-eln/website/db.sqlite3" url="jdbc:sqlite:/home/hector/code/django/bc-eln/website/db.sqlite3" type="dev"/>
+	<data-source id="sqlite_jdbc-1662d919fe0-67ec2667a8550880" provider="generic" driver="sqlite_jdbc" name="SQLite - db.sqlite3" save-password="true" read-only="false">
+		<connection server="" database="/home/hector/code/django/bc-eln/bceln/db.sqlite3" url="jdbc:sqlite:/home/hector/code/django/bc-eln/bceln/db.sqlite3" type="dev"/>
 	</data-source>
 	<filters/>
 </data-sources>
