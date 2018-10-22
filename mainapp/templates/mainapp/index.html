@@ -1,3 +1,4 @@
+{% extends "mainapp/base_generic.html" %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,16 +8,16 @@
 <link rel="stylesheet" type="text/css" href="{% static 'mainapp/style.css' %}">
 </head>
 <body>
-
-{% if instruments_table %}
-    <ul>
-    {% for instruments in instruments_table %}
-        <li><a href="/mainapp/{{ instruments.id }}/">{{ instruments.manufacturer }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No data available.</p>
-{% endif %}
-
+	{% block content %}
+		{% if instruments_table %}
+		    <ul>
+		    {% for instruments in instruments_table %}
+		        <li><a href="/mainapp/{{ instruments.id }}/">{{ instruments.manufacturer }}</a></li>
+		    {% endfor %}
+		    </ul>
+		{% else %}
+		    <p>No data available.</p>
+		{% endif %}
+	{% endblock %}
 </body>
 </html>
