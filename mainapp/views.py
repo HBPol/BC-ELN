@@ -6,7 +6,7 @@ from .models import Instruments
 # Create your views here.
 
 def index(request):
-    page_title = 'Index'
+    page_title = 'Application Index'
     instruments_table = Instruments.objects.all()
     context = {
         'page_title': page_title,
