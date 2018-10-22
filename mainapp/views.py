@@ -13,6 +13,3 @@ def index(request):
         'instruments_table': instruments_table
     }
     return render(request, 'mainapp/index.html', context)
-    
-def home(request):
-    return HttpResponse("It worked! ELN home page")
