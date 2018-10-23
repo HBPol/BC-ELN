@@ -8,12 +8,19 @@ class Sample(models.Model):
     batch = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     storage_temp = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.batch
 
 class LabProtocol(models.Model):
     sample = models.ForeignKey(Sample, on_delete=models.CASCADE)
     analyst = models.OneToOneField(User, on_delete=models.CASCADE)
     analyte = models.CharField(max_length=100)
     instructions = models.TextField()
+
+    def __str__(self):
+        return self.analyte
+
     
 class SampleAnalysis (models.Model):
     lab_protocol = models.ForeignKey(LabProtocol, on_delete=models.CASCADE)
@@ -28,6 +35,10 @@ class SampleAnalysis (models.Model):
     )
     status = models.CharField(max_length=3, choices=SAMPLE_ANALYSIS_STATUS, default='')
 
+    def __str__(self):
+        return self.lab_protocol
+
+
 class Instruments(models.Model):
     name = models.CharField(max_length=100)
     serial_no = models.CharField(max_length=100)
@@ -37,6 +48,10 @@ class Instruments(models.Model):
     last_calibration_date = models.DateTimeField()
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     used_in = models.ManyToManyField(LabProtocol)
+    
+    def __str__(self):
+        return self.name
+    
 
 class Reagents(models.Model):
     name = models.CharField(max_length=100)
@@ -45,4 +60,6 @@ class Reagents(models.Model):
     expiry_date = models.DateTimeField()
     used_in = models.ManyToManyField(LabProtocol)
     
+    def __str__(self):
+        return self.name
     
