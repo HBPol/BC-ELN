@@ -17,18 +17,21 @@
 	
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-2">
-			{% block l_side %}
-				<h1>Left side content</h1>
-				<ul class="sidebar-nav">
-					<li><a href="{% url 'index' %}">Home</a></li>
-					<li><a href="">Item 1</a></li>
-					<li><a href="">Item 2</a></li>
-				</ul>
-			{% endblock %}
+			<div class="col-sm-2 col-xs-1 p-l-0 p-r-0" id="sidebar">
+				{% block l_side %}
+					{% include 'mainapp/l_side.html' %}
+				{% endblock %}
 			</div>
-		<div class="col-sm-8">{% block content %}{% endblock %}</div>
-		<div class="col-sm-2">{% block r_side %}<h1>Right side content</h1>{% endblock %}</div>
+		<div class="col-sm-8">
+			{% block content %}
+			
+			{% endblock %}
+		</div>
+		<div class="col-sm-2">
+			{% block r_side %}
+				{% include 'mainapp/r_side.html' %}
+			{% endblock %}
+		</div>
 		</div>
 	</div>
 	

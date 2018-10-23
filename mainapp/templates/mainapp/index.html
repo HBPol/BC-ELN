@@ -4,24 +4,37 @@
 <head>
 <meta charset="UTF-8">
 <title>{{ page_title }}</title>
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'mainapp/style.css' %}">
+
 </head>
-<body>
-	
+<body>	
 	{% block content %}
-		<h1>List of lab instruments.</h1>
-		<hr>
+		<h1>Lab instruments.</h1>
 		{% if instruments_table %}
-		    <ul>
-		    {% for instruments in instruments_table %}
-		        <li><a href="/mainapp/{{ instruments.id }}/">{{ instruments.manufacturer }}</a></li>
-		    {% endfor %}
-		    </ul>
+		    <table class="table table-hover">
+			    <thead>
+			      <tr>
+			        <th>Name</th>
+			        <th>Manufacturer</th>
+			        <th>Serial Num.</th>
+			        <th>Model</th>
+			        <th>Owner</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+					{% for instruments in instruments_table %}
+					<tr>
+						<td><a href="{% url 'details' instruments.id %}">{{ instruments.name }}</a></td>
+						<td>{{ instruments.manufacturer }}</td>
+						<td>{{ instruments.serial_no }}</td>
+						<td>{{ instruments.model }}</td>
+						<td>{{ instruments.owner_id }}</td>        
+					</tr>
+					{% endfor %} 
+				</tbody>
+			</table>
 		{% else %}
-		    <p>No data available.</p>
+			<p>No data available.</p>
 		{% endif %}
 	{% endblock %}
-	
 </body>
 </html>
